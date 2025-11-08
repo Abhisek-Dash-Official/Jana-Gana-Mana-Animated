@@ -1,0 +1,254 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+* {
+    scrollbar-width: none;
+    -moz-scrollbars-none: none;
+}
+
+body {
+    background: url(../img/image.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.body {
+    overflow: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Floating particles */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.6;
+    animation: float 20s infinite ease-in-out;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+
+    33% {
+        transform: translateY(-100px) translateX(100px) rotate(120deg);
+    }
+
+    66% {
+        transform: translateY(100px) translateX(-100px) rotate(240deg);
+    }
+}
+
+/* Enhanced bounce with 3D effect */
+@keyframes bounce3d {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1) rotateY(0deg);
+        filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
+    }
+
+    25% {
+        transform: translateY(-180px) scale(1.2) rotateY(180deg);
+        filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.3));
+    }
+
+    50% {
+        transform: translateY(0) scale(0.95) rotateY(360deg);
+        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+    }
+
+    75% {
+        transform: translateY(-80px) scale(1.1) rotateY(540deg);
+        filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.25));
+    }
+}
+
+.letter {
+    display: inline-block;
+    animation: bounce3d 2.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    background: linear-gradient(45deg, #ff6b6b, #ee5a6f, #c44569, #4ecdc4, #44a08d, #ffd93d, #ff6b9d);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: bounce3d 2.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), colorShift 8s ease infinite;
+    text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
+    position: relative;
+}
+
+@keyframes colorShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Glowing lines with wave effect */
+.glowLine {
+    position: absolute;
+    top: 0;
+    left: -10%;
+    width: 3px;
+    height: 100vh;
+    background: linear-gradient(180deg,
+            transparent,
+            rgba(255, 255, 255, 0.8) 30%,
+            rgba(255, 107, 107, 0.8) 50%,
+            rgba(78, 205, 196, 0.8) 70%,
+            transparent);
+    animation: slideWave 4s ease-in-out infinite;
+    filter: blur(2px) drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
+    z-index: 1;
+}
+
+@keyframes slideWave {
+    0% {
+        left: -10%;
+        transform: scaleY(0.5);
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+
+    100% {
+        left: 110%;
+        transform: scaleY(0.5);
+        opacity: 0;
+    }
+}
+
+.glowLine:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.glowLine:nth-child(2) {
+    animation-delay: 0.8s;
+    width: 5px;
+}
+
+.glowLine:nth-child(3) {
+    animation-delay: 1.6s;
+    width: 2px;
+}
+
+.glowLine:nth-child(4) {
+    animation-delay: 2.4s;
+    width: 4px;
+}
+
+.glowLine:nth-child(5) {
+    animation-delay: 3.2s;
+    width: 3px;
+}
+
+/* Pulsing glow effect */
+@keyframes pulse {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.3));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 80px rgba(255, 107, 107, 0.6));
+    }
+}
+
+#textPara {
+    animation: pulse 4s ease-in-out infinite;
+    position: relative;
+    z-index: 10;
+}
+
+/* Sparkle effect */
+.sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: sparkleAnim 1.5s ease-out forwards;
+}
+
+@keyframes sparkleAnim {
+    0% {
+        opacity: 1;
+        transform: scale(0) rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5) rotate(180deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0) rotate(360deg);
+    }
+}
+
+/* Ripple effect on background */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    animation: rippleAnim 3s ease-out infinite;
+    pointer-events: none;
+}
+
+@keyframes rippleAnim {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+
+    100% {
+        width: 800px;
+        height: 800px;
+        opacity: 0;
+    }
+}
